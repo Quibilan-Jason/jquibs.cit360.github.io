@@ -1,0 +1,278 @@
+Introduction
+	While Use Case Diagrams are a good starting point and may be of interest to management or stakeholders, the development team will find more value in a Use Case Document. The basic difference between these two is that Use Case Diagrams are visual and serve as a sort of basic outline, while Use Case Documents delve into more detail.  The Use Case Document is a business document which provides a story of how a system, and its actors, will be utilized to achieve a specific goal. An effective Use Case should provide a detailed step-by-step description of how the system will be used by its actors to achieve the planned outcome. The purpose of the Use Case is to tie the business needs of the system to the design parameters of the system to ensure that the completed system achieves the goals established by the business requirements. The level of detail in Use Cases may vary greatly depending on the size and complexity of the system being designed.
+
+Use Case Contents
+	- Use case formats and contents may vary based on system requirements, organizational standards, or unique situations.
+
+Use case description detail	What the detail means and why it is useful
+Related Requirements	Some indication as to which requirements this use case partially or completely fulfills
+Goal In Context	The use case’s place within the system and why this use case is important
+Preconditions	What needs to happen before the use case can be executed
+Successful End Condition	What the system’s condition should be if the use case executes successfully
+Failed End Condition	What the system’s condition should be if the use case fails to execute successfully
+Primary Actors	The main actors that participate in the use case. Often includes the actors that trigger or directly receive information from a use case’s execution
+Secondary Actors	Actors that participate but are not the main players in a use case’s execution
+Trigger	The event triggered by an actor that causes the use case to execute
+Main Flow	The place to describe each of the important steps in a use case’s normal execution
+Extensions	A description of any alternative steps from the ones described in the Main Flow.
+
+
+
+
+Use Case Document example #1
+	- Doctor’s appointment application
+
+Use Case:  Set Appointment
+
+Id:  1
+
+Description
+A scheduler will set an appointment at clinic.
+
+Level: User Goal
+
+Primary Actor
+Scheduler
+
+Pre-Conditions
+A scheduler will set an appointment.
+
+Post Conditions
+
+Success end condition
+Doctor will be notified of appointment.
+
+Failure end condition:
+Scheduler will not be able to setup appointment.
+
+Trigger
+Scheduler clicks create.
+
+
+Use Case:  Accept Appointment
+
+Id:  2
+
+Description
+Doctor will accept appointment.
+
+Level: User Goal
+
+Primary Actor
+Doctor
+
+Pre-Conditions
+Doctor must download application, scheduler must have set appointment.
+
+Post Conditions
+
+Success end condition
+Scheduler will be notified of Doctor’s acceptance of appointment.
+
+Failure end condition:
+Scheduler and Doctor will not have appointment in system.
+
+Trigger
+Doctor clicks accept.
+
+
+Use Case:  Schedule patient for Doctor appointment.
+
+Id:  3
+
+Description
+Scheduler will schedule a time for a patient.
+
+Level: User Goal
+
+Primary Actor
+Scheduler
+
+Pre-Conditions
+Doctor has accepted appointment.
+
+Post Conditions
+
+Success end condition
+Patient will be notified of Doctor’s appointment.
+
+Failure end condition:
+Scheduler and Doctor will not have appointment in system.
+
+Trigger
+Scheduler clicks manage system.
+
+
+Use Case:  Patient accepts Doctor’s appointment.
+
+Id:  4
+
+Description
+Patient accepts time of Doctor’s appointment.
+
+Level: User Goal
+
+Primary Actor
+Patient
+
+Pre-Conditions
+Patient has Doctor’s appointment scheduled.
+
+Post Conditions
+
+Success end condition
+Doctor is notified.
+
+Failure end condition:
+Doctor never receives notification.
+
+Trigger
+Patient clicks accept.
+
+
+Use Case:  Patient cancels appointment
+
+Id:  5
+
+Description
+Patient cancels time of Doctor’s appointment.
+
+Level: User Goal
+
+Primary Actor
+Patient
+
+Pre-Conditions
+Patient has Doctor’s appointment cancelled.
+
+Post Conditions
+
+Success end condition
+Doctor is notified.
+
+Failure end condition:
+Patient will still have Doctor’s appointment in system.
+
+Trigger
+Patient clicks delete.
+
+
+
+
+
+
+
+Use Case Document example #2
+	- Student enrolling in a seminar.
+
+Name: Enroll in Seminar
+Identifier: UC 17
+Description:
+Enroll an existing student in a seminar for which she is eligible.
+
+
+Preconditions:
+The Student is registered at the University.
+
+
+Postconditions:
+The Student will be enrolled in the course she wants if she is eligible and room is available.
+
+
+Basic Course of Action:
+1. The use case begins when a student wants to enroll in a seminar.
+2. The student inputs her name and student number into the system via UI23 Security Login Screen.
+3. The system verifies the student is eligible to enroll in seminars at the university according to business rule BR129 Determine Eligibility to Enroll. [Alt Course A]
+4. The system displays UI32 Seminar Selection Screen, which indicates the list of available seminars.
+5. The student indicates the seminar in which she wants to enroll. [Alt Course B: The Student Decides Not to Enroll]
+6. The system validates the student is eligible to enroll in the seminar according to the business rule BR130 Determine Student Eligibility to Enroll in a Seminar. [Alt Course C]
+7. The system validates the seminar fits into the existing schedule of the student according to the business rule BR143 Validate Student Seminar Schedule.
+8. The system calculates the fees for the seminar based on the fee published in the course catalog, applicable student fees, and applicable taxes. Apply business rules BR 180 Calculate Student Fees and BR45 Calculate Taxes for Seminar.
+9. The system displays the fees via UI33 Display Seminar Fees Screen.
+10. The system asks the student if she still wants to enroll in the seminar.
+11. The student indicates she wants to enroll in the seminar.
+12. The system enrolls the student in the seminar.
+13. The system informs the student the enrollment was successful via UI88 Seminar Enrollment Summary Screen.
+14. The system bills the student for the seminar, according to business rule BR100 Bill Student for Seminar.
+15. The system asks the student if she wants a printed statement of the enrollment.
+16. The student indicates she wants a printed statement.
+17. The system prints the enrollment statement UI89 Enrollment Summary Report.
+18. The use case ends when the student takes the printed statement.
+
+Alternate Course A: The Student is Not Eligible to Enroll in Seminars.
+A.3. The registrar determines the student is not eligible to enroll in seminars.
+A.4. The registrar informs the student he is not eligible to enroll.
+A.5. The use case ends.
+
+
+Alternate Course B: The Student Decides Not to Enroll in an Available Seminar
+B.5. The student views the list of seminars and does not see one in which he wants to enroll.
+B.6. The use case ends.
+
+
+Alternate Course C: The Student Does Not Have the Prerequisites
+C.6. The registrar determines the student is not eligible to enroll in the seminar he chose.
+C.7. The registrar informs the student he does not have the prerequisites.
+C.8. The registrar informs the student of the prerequisites he needs.
+C.9. The use case continues at Step 4 in the basic course of action.
+
+
+
+
+
+
+Use Case Document example #3
+	- ABC Corp. ordering materials system
+
+Name of Use Case: Order Materials
+Created By: ABC Corporations
+Last Updated By: J. Doe
+Date Created:02/15/xx
+Last Revision Date:02/22/xx  
+
+Description: ABC Corp. buyer submits material order to one of a pre-approved lists of material vendors
+Actors: ABC Corp. buyer, SAP material module, pre-approved vendor
+Preconditions:
+1. Vendor has pre-approval in ABC Corp.’s ordering system
+2. Funding is available for material ordering
+3. Material being ordered is available for purchase
+Postconditions:
+1. Vendor receives funds for purchase of materials
+2. ABC Corp. receives materials within the designated timeframe
+3. ABC Corp.’s material account is reduced by the cost of the material order
+4. ABC Corp.’s inventory numbers are successfully updated once material is received
+Flow:
+1. ABC Corp. buyer identifies material needing to be ordered
+2. ABC Corp. buyer consults pre-approved list of vendors to identify supplier
+3. ABC Corp. buyer confirms funding is available
+4. ABC Corp. buyer submits order to pre-approved vendor
+5. Vendor receives order and verifies material is available and accepts funding transfer
+6. Vendor pulls material order and submits shipping order to ship material
+7. ABC Corp. receives material
+8. ABC Corp. enters material receipt verification into SAP and inventory levels are updated
+9. Funding transactions are confirmed between ABC Corp. buyer and vendor
+Alternative Flows: 5. In step 5 of the normal flow, if the vendor does not have the material available
+
+1. Vendor places order in a hold status and notifies the ABC Corp. buyer
+2. Vendor provides updates and estimated timeframe of material receipt 
+3. Once material arrives the Use Case resumes at step 6 of the normal flow
+Exceptions: 2. In step 2 of the normal flow, if ABC Corp. identifies material needed with no pre-approved vendor 
+
+1. ABC Corp. buyer initiates internal process to identify suppliers for new material
+2. ABC Corp. buyer coordinates agreement between ABC Corp. and potential vendor
+3. Upon obtaining agreement and approval, vendor is added to pre-approved vendor list
+4. Use Case resumes on step 3 of normal flow
+Requirements: The following requirements must be met before execution of the use case
+1. Funding availability must be verified prior to submitting any material purchases
+2. All material orders must comply with internal ABC Corp. ordering guidelines and procedures 
+
+
+
+Sources: 
+
+Miles, Russ; Hamilton, Kim (2006-04-25). Learning UML 2.0 (Kindle Locations 700-723). O'Reilly Media.
+
+http://agilemodeling.com/artifacts/systemUseCase.htm#Identifying
+
+http://www.projectmanagementdocs.com/project-documents/use-case-document.html#axzz5Ip5Kwj58
+
